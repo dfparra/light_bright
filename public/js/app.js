@@ -5,6 +5,22 @@ $(document).ready(function(){
   var numOfCols = 10;
 
   initGrid();
+  addClickHandlers();
+
+  function changeColor(){
+    console.log('im changing!1!!!');
+  }
+
+  function addClickHandlers(){
+    var cells = $('.cell');
+    console.log(cells);
+    for(var counter=0;counter < cells.length;counter+=1){
+      var cell = cells[counter];
+      $(cell).on('click', changeColor);
+
+    }
+  }
+
   function initGrid(){
     for(var i = 0; i< numOfRows; i+= 1){
       var row = $('<div></div>');
