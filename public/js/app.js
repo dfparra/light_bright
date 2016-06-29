@@ -6,9 +6,20 @@ $(document).ready(function(){
 
   initGrid();
   addClickHandlers();
+  // addClickHandlersV2();
 
+  function addClickHandlersV2(){
+    var cells = $('.cells');
+    cells.on('click',changeColor);
+  }
   function changeColor(){
-    console.log('im changing!1!!!');
+    // console.log('im changing!1!!!');
+    // $(this).toggleClass('red');
+    var colorClasses = ['white','red','green','blue'];
+    var colorCycle = Math.round(Math.random() * (colorClasses.length-1));
+    var color = colorClasses[colorCycle];
+    $(this).removeClass(colorClasses.join(' '));
+    $(this).addClass(color);
   }
 
   function addClickHandlers(){
@@ -16,7 +27,7 @@ $(document).ready(function(){
     console.log(cells);
     for(var counter=0;counter < cells.length;counter+=1){
       var cell = cells[counter];
-      $(cell).on('click', changeColor);
+      $(cell).on('mouseenter', changeColor);
 
     }
   }
