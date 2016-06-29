@@ -1,12 +1,26 @@
 
 $(document).ready(function(){
+  var buildBtn = $('#build');
   var container = $('.container');
-  var numOfRows = 10;
-  var numOfCols = 10;
+  var numOfRows = 10; //Default values
+  var numOfCols = 10; //Default values
+
+  buildBtn.on('click',getValues);
+
 
   initGrid();
   addClickHandlers();
   // addClickHandlersV2();
+
+  function getValues(){
+    numOfRows = document.getElementById("rowsInput").value;
+    numOfCols = document.getElementById("columnInput").value;
+    console.log("THE NUMBER OF ROWS IS "+numOfRows+" THE NUMBER COLUMNS IS "+numOfCols);
+    removeGrid();
+    initGrid();
+    addClickHandlers();
+
+  }
 
   function addClickHandlersV2(){
     var cells = $('.cells');
@@ -30,6 +44,10 @@ $(document).ready(function(){
       $(cell).on('mouseenter', changeColor);
 
     }
+  }
+
+  function removeGrid(){
+      container.html('');
   }
 
   function initGrid(){
