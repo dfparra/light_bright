@@ -52,8 +52,7 @@ $(document).ready(function(){
       //Cycle to next color
       colorCycle += 1;
     }
-    else if (colorCycle < 4) {
-      //Sets the Color
+    else if (colorCycle === 1 ) {
       var color = colorClasses[colorCycle];
       $(this).removeClass(colorClasses.join(' '));
       $(this).addClass(color);
@@ -61,9 +60,34 @@ $(document).ready(function(){
       //Cycle to next color
       colorCycle += 1;
     }
-    else if (colorCycle === 4) {
+    else if (colorCycle === 2) {
+      var color = colorClasses[colorCycle];
+      $(this).removeClass(colorClasses.join(' '));
+      $(this).addClass(color);
+
+      //Cycle to next color
+      colorCycle += 1;
+    }
+    else if (colorCycle === 3) {
+      var color = colorClasses[colorCycle];
+      $(this).removeClass(colorClasses.join(' '));
+      $(this).addClass(color);
+
+      //Cycle to next color
       colorCycle = 0;
     }
+    // else if (colorCycle < 4) {
+    //   //Sets the Color
+    //   var color = colorClasses[colorCycle];
+    //   $(this).removeClass(colorClasses.join(' '));
+    //   $(this).addClass(color);
+    //
+    //   //Cycle to next color
+    //   colorCycle += 1;
+    // }
+    // else if (colorCycle === 4) {
+    //   colorCycle = 0;
+    // }
 
 
   }
