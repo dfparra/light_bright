@@ -4,6 +4,7 @@ $(document).ready(function(){
   var container = $('.container');
   var numOfRows = 10; //Default values
   var numOfCols = 10; //Default values
+  var colorCycle = 0; //Default white
 
   buildBtn.on('click',getValues);
 
@@ -30,10 +31,41 @@ $(document).ready(function(){
     // console.log('im changing!1!!!');
     // $(this).toggleClass('red');
     var colorClasses = ['white','red','green','blue'];
-    var colorCycle = Math.round(Math.random() * (colorClasses.length-1));
-    var color = colorClasses[colorCycle];
-    $(this).removeClass(colorClasses.join(' '));
-    $(this).addClass(color);
+
+    //Code for random color (MUST COMMENT OUT GLOBAL VAR)
+    // var colorCycle = Math.round(Math.random() * (colorClasses.length-1));
+
+    // //Sets the Color (code from random cycle)
+    // var color = colorClasses[colorCycle];
+    // $(this).removeClass(colorClasses.join(' '));
+    // $(this).addClass(color);
+
+
+    //Code for color cycle
+
+    if(colorCycle === 0){
+      //Sets the Color
+      var color = colorClasses[colorCycle];
+      $(this).removeClass(colorClasses.join(' '));
+      $(this).addClass(color);
+
+      //Cycle to next color
+      colorCycle += 1;
+    }
+    else if (colorCycle < 4) {
+      //Sets the Color
+      var color = colorClasses[colorCycle];
+      $(this).removeClass(colorClasses.join(' '));
+      $(this).addClass(color);
+
+      //Cycle to next color
+      colorCycle += 1;
+    }
+    else if (colorCycle === 4) {
+      colorCycle = 0;
+    }
+
+
   }
 
   function addClickHandlers(){
